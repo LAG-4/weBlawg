@@ -9,3 +9,4 @@ tags:
 
 
 1. Get a Raspberry Pi
+2. ![[Pasted image 20250625224919.png]]
