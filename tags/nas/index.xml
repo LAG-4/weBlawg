@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nas on Terminal</title>
+    <link>//localhost:1313/tags/nas/</link>
+    <description>Recent content in Nas on Terminal</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/tags/nas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to make a RaspberryPi NAS</title>
+      <link>//localhost:1313/posts/posts/how-to-make-a-raspberry-pi-nas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/posts/how-to-make-a-raspberry-pi-nas/</guid>
+      <description>&lt;ol&gt;&#xA;&lt;li&gt;Get a Raspberry Pi&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>
