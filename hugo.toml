@@ -74,7 +74,7 @@ pagination.pagerSize = 5
 [languages]
   [languages.en]
     languageName = "English"
-    title = "Terminal"
+    title = "LAG"
 
     [languages.en.params]
       subtitle = "A simple, retro theme for Hugo"
@@ -92,7 +92,7 @@ pagination.pagerSize = 5
       words = "words"
 
       [languages.en.params.logo]
-        logoText = "Terminal"
+        logoText = "LAG"
         logoHomeLink = "/"
 
       [languages.en.menu]
