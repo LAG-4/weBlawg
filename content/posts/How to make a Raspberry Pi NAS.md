@@ -1,12 +1,7 @@
 ---
-title: How to make a RaspberryPi NAS
-date: 2025-06-26
+title: "How to Make a Raspberry Pi NAS"
+date: 2025-06-26T04:45:03+05:30
 draft: false
-tags:
-  - nas
-  - raspberrypi
 ---
 
-
-1. Get a Raspberry Pi
-2. ![[Pasted image 20250625224919.png]]
+This is a post about making a NAS with a Raspberry Pi. You can add your content here.
