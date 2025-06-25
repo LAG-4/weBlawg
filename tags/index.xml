@@ -6,6 +6,28 @@
     <description>Recent content in Tags on LAG</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Thu, 26 Jun 2025 04:45:03 +0530</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Thu, 26 Jun 2025 04:45:03 +0530</pubDate>
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nas</title>
+      <link>/tags/nas/</link>
+      <pubDate>Thu, 26 Jun 2025 04:45:03 +0530</pubDate>
+      <guid>/tags/nas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberrypi</title>
+      <link>/tags/raspberrypi/</link>
+      <pubDate>Thu, 26 Jun 2025 04:45:03 +0530</pubDate>
+      <guid>/tags/raspberrypi/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
