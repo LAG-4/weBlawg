@@ -125,7 +125,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 
 <div class="container">
 
-  <header class="header">
+  <header class="header" role="banner">
   <div class="header__inner">
     <div class="header__logo">
       <a href="/">
@@ -136,33 +136,33 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 
     </div>
     
-      <ul class="menu menu--mobile">
-  <li class="menu__trigger">Menu&nbsp;▾</li>
-  <li>
-    <ul class="menu__dropdown">
+      <nav class="menu menu--mobile" role="navigation">
+  <button class="menu__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-menu-dropdown">
+    Menu&nbsp;▾
+  </button>
+  <ul class="menu__dropdown" id="mobile-menu-dropdown">
+    
       
-        
-          <li><a href="/about">About</a></li>
-        
+        <li><a href="/about">About</a></li>
       
-        
-          <li><a href="/posts">All Posts</a></li>
-        
+    
       
-        
-          <li><a href="/showcase">Showcase</a></li>
-        
+        <li><a href="/posts">All Posts</a></li>
       
+    
       
-    </ul>
-  </li>
-</ul>
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
 
     
     
   </div>
   
-    <nav class="navigation-menu">
+    <nav class="navigation-menu" role="navigation">
   <ul class="navigation-menu__inner menu--desktop">
     
       
@@ -198,7 +198,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 </header>
 
 
-  <div class="content">
+  <main class="content" role="main">
     
 <article class="post">
   <h1 class="post-title">
@@ -225,14 +225,14 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
   <div class="post-content"><div>
         <p>Hello all,</p>
 <p>In this guide I’ll show you, step by step, how to turn an old Raspberry Pi into a Network Attached Storage (NAS) box and local media server using Samba and Jellyfin. Your Pi won’t bake you a pie, but it’ll serve up your movies and files just fine!</p>
-<h2 id="why-i-built-a-nas">Why I Built a NAS<a href="#why-i-built-a-nas" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="why-i-built-a-nas">Why I Built a NAS<a href="#why-i-built-a-nas" class="hanchor" aria-label="Anchor">#</a> </h2>
 <p>I had:</p>
 <ul>
 <li>An old Raspberry Pi (Model 3 B+)</li>
 <li>A lonely external HDD gathering dust<br>
 I wanted to learn more about networking, reuse my hardware, and never let good tech go to waste.</li>
 </ul>
-<h2 id="requirements">Requirements<a href="#requirements" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="requirements">Requirements<a href="#requirements" class="hanchor" aria-label="Anchor">#</a> </h2>
 <ul>
 <li>Raspberry Pi (3 B+ or newer)</li>
 <li>SD card (≥ 32 GB) with reader</li>
@@ -241,7 +241,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 <li>PC or laptop (Windows, Linux or macOS)</li>
 </ul>
 <hr>
-<h2 id="step-1-flash-raspberry-pi-os">Step 1: Flash Raspberry Pi OS<a href="#step-1-flash-raspberry-pi-os" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="step-1-flash-raspberry-pi-os">Step 1: Flash Raspberry Pi OS<a href="#step-1-flash-raspberry-pi-os" class="hanchor" aria-label="Anchor">#</a> </h2>
 <ol>
 <li>Download <strong>Raspberry Pi Imager</strong> from raspberrypi.org.<br>
 ![[Pasted image 20250626051143.png]]</li>
@@ -252,7 +252,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 <li>Eject the SD card and place it into the Raspberry Pi.</li>
 </ol>
 <hr>
-<h2 id="step-2-first-boot--network-access">Step 2: First Boot &amp; Network Access<a href="#step-2-first-boot--network-access" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="step-2-first-boot--network-access">Step 2: First Boot &amp; Network Access<a href="#step-2-first-boot--network-access" class="hanchor" aria-label="Anchor">#</a> </h2>
 <ol>
 <li>Insert the SD card, connect Pi → router (Ethernet) or Wi-Fi, then power on.<br>
 - You can see the Pi&rsquo;s IP address directly from your router page if the router doesnt support it then connect the raspberrypi to a monitor or TV via HDMI and follow the steps below.</li>
@@ -268,7 +268,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 </span></span></code></pre></div></li>
 </ol>
 <hr>
-<h2 id="step-3-mount-your-external-hdd">Step 3: Mount Your External HDD<a href="#step-3-mount-your-external-hdd" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="step-3-mount-your-external-hdd">Step 3: Mount Your External HDD<a href="#step-3-mount-your-external-hdd" class="hanchor" aria-label="Anchor">#</a> </h2>
 <ol>
 <li>(Optional) Install NTFS support if your drive is NTFS:
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install ntfs-3g -y
@@ -289,7 +289,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 </span></span></code></pre></div></li>
 </ol>
 <hr>
-<h2 id="step-4-set-up-samba-windows-friendly-nas">Step 4: Set Up Samba (Windows-Friendly NAS)<a href="#step-4-set-up-samba-windows-friendly-nas" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="step-4-set-up-samba-windows-friendly-nas">Step 4: Set Up Samba (Windows-Friendly NAS)<a href="#step-4-set-up-samba-windows-friendly-nas" class="hanchor" aria-label="Anchor">#</a> </h2>
 <ol>
 <li>Install Samba:
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install samba samba-common-bin -y
@@ -314,7 +314,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 <li>From Windows Explorer, go to <code>\\&lt;PI_IP&gt;\NAS</code>, enter your Samba credentials, and voilà!</li>
 </ol>
 <hr>
-<h2 id="step-5-install-jellyfin-your-personal-netflix">Step 5: Install Jellyfin (Your Personal Netflix)<a href="#step-5-install-jellyfin-your-personal-netflix" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="step-5-install-jellyfin-your-personal-netflix">Step 5: Install Jellyfin (Your Personal Netflix)<a href="#step-5-install-jellyfin-your-personal-netflix" class="hanchor" aria-label="Anchor">#</a> </h2>
 <ol>
 <li>Add Jellyfin’s repo and key:
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install -y apt-transport-https gnupg2
@@ -339,7 +339,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
 </li>
 </ol>
 <hr>
-<h2 id="final-thoughts">Final Thoughts<a href="#final-thoughts" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="final-thoughts">Final Thoughts<a href="#final-thoughts" class="hanchor" aria-label="Anchor">#</a> </h2>
 <p>– Keep your Pi cool (a heatsink helps).<br>
 – Use your router’s DHCP reservation for a stable IP.<br>
 – Back up configs if you get too adventurous.</p>
@@ -358,7 +358,7 @@ I wanted to learn more about networking, reuse my hardware, and never let good t
   
 </article>
 
-  </div>
+  </main>
 
   
     <footer class="footer">
