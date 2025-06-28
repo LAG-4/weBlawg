@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Making J.A.R.V.I.S :: LAG</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ever Dreamed of Building Your Own J.A.R.V.I.S.? Have you ever watched an Iron Man movie and thought, &ldquo;I wish I had my own J.A.R.V.I.S.&rdquo;? That witty, all-knowing, and incredibly helpful AI assistant is no longer just a thing of science fiction. With today&rsquo;s technology, you can create your very own version of J.A.R.V.I.S., and this tutorial will show you how.
+What is J.A.R.V.I.S.? For those unfamiliar, J.A.R.V.I.S. (Just A Rather Very Intelligent System) is Tony Stark&rsquo;s AI companion in the Marvel Cinematic Universe. He&rsquo;s the voice in the suit, the brain behind the operations, and the ultimate smart home manager. J.A.R.V.I.S. can do everything from running diagnostics on the Iron Man suit to ordering shawarma. While we might not be building a superhero-grade AI today, we can certainly create a personal assistant that can answer questions, tell jokes, and even help with your daily tasks.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/making-j.a.r.v.i.s/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="/css/main.min.775ac2af004d44c22a6d000fbd1d9af529642f5cef27399d0280d180af2c2e9b.css">
+
+  
+  <link rel="stylesheet" href="/css/menu.min.310d32205bdedd6f43144e3c3273c9deecd238eba5f9108db5ea96ca0cfbe377.css">
+
+  
+  <link rel="stylesheet" href="/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="/css/post.min.ad50c7f4d00e7975918f37fc74c6029e1959a40d66fb5b2c6564a8715e985573.css">
+
+  
+  <link rel="stylesheet" href="/css/syntax.min.e9ab635cf918bc84b901eb65c0b2caa74c9544245e3647c1af5c129896ef276e.css">
+
+  
+  <link rel="stylesheet" href="/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Making J.A.R.V.I.S">
+<meta property="og:description" content="Ever Dreamed of Building Your Own J.A.R.V.I.S.? Have you ever watched an Iron Man movie and thought, &ldquo;I wish I had my own J.A.R.V.I.S.&rdquo;? That witty, all-knowing, and incredibly helpful AI assistant is no longer just a thing of science fiction. With today&rsquo;s technology, you can create your very own version of J.A.R.V.I.S., and this tutorial will show you how.
+What is J.A.R.V.I.S.? For those unfamiliar, J.A.R.V.I.S. (Just A Rather Very Intelligent System) is Tony Stark&rsquo;s AI companion in the Marvel Cinematic Universe. He&rsquo;s the voice in the suit, the brain behind the operations, and the ultimate smart home manager. J.A.R.V.I.S. can do everything from running diagnostics on the Iron Man suit to ordering shawarma. While we might not be building a superhero-grade AI today, we can certainly create a personal assistant that can answer questions, tell jokes, and even help with your daily tasks.
+" />
+<meta property="og:url" content="/posts/making-j.a.r.v.i.s/" />
+<meta property="og:site_name" content="LAG" />
+
+  <meta property="og:image" content="/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-06-29 05:04:03 &#43;0530 IST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header" role="banner">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    LAG
+  </div>
+</a>
+
+    </div>
+    
+      <nav class="menu menu--mobile" role="navigation">
+  <button class="menu__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-menu-dropdown">
+    Menu&nbsp;▾
+  </button>
+  <ul class="menu__dropdown" id="mobile-menu-dropdown">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">All Posts</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu" role="navigation">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+        
+          <li><a href="/posts" >All Posts</a></li>
+        
+      
+      
+        <li>
+          <ul class="menu">
+            <li class="menu__trigger">Show more&nbsp;▾</li>
+            <li>
+              <ul class="menu__dropdown">
+                
+                  
+                    <li><a href="/showcase" >Showcase</a></li>
+                  
+                
+              </ul>
+            </li>
+          </ul>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <main class="content" role="main">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/making-j.a.r.v.i.s/">Making J.A.R.V.I.S</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-06-29</time></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/ai/">ai</a>&nbsp;
+      
+      #<a href="/tags/jarvis/">jarvis</a>&nbsp;
+      
+      #<a href="/tags/ironman/">ironman</a>&nbsp;
+      
+      #<a href="/tags/terminal/">terminal</a>&nbsp;
+      
+      #<a href="/tags/llm/">LLM</a>&nbsp;
+      
+      #<a href="/tags/python/">python</a>&nbsp;
+      
+      #<a href="/tags/uv/">uv</a>&nbsp;
+      
+      #<a href="/tags/openai/">openai</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="ever-dreamed-of-building-your-own-jarvis">Ever Dreamed of Building Your Own J.A.R.V.I.S.?<a href="#ever-dreamed-of-building-your-own-jarvis" class="hanchor" aria-label="Anchor">#</a> </h1>
+<p>Have you ever watched an Iron Man movie and thought, &ldquo;I wish I had my own J.A.R.V.I.S.&rdquo;? That witty, all-knowing, and incredibly helpful AI assistant is no longer just a thing of science fiction. With today&rsquo;s technology, you can create your very own version of J.A.R.V.I.S., and this tutorial will show you how.</p>
+<h2 id="what-is-jarvis">What is J.A.R.V.I.S.?<a href="#what-is-jarvis" class="hanchor" aria-label="Anchor">#</a> </h2>
+<p>For those unfamiliar, J.A.R.V.I.S. (Just A Rather Very Intelligent System) is Tony Stark&rsquo;s AI companion in the Marvel Cinematic Universe. He&rsquo;s the voice in the suit, the brain behind the operations, and the ultimate smart home manager. J.A.R.V.I.S. can do everything from running diagnostics on the Iron Man suit to ordering shawarma. While we might not be building a superhero-grade AI today, we can certainly create a personal assistant that can answer questions, tell jokes, and even help with your daily tasks.</p>
+<h2 id="why-build-your-own-ai-assistant">Why Build Your Own AI Assistant?<a href="#why-build-your-own-ai-assistant" class="hanchor" aria-label="Anchor">#</a> </h2>
+<p>Building your own AI assistant is a fantastic way to learn about artificial intelligence, machine learning, and programming. It&rsquo;s a project that combines several exciting technologies, including:</p>
+<ul>
+<li>  <strong>Speech Recognition:</strong> To understand your voice commands.</li>
+<li>  <strong>Large Language Models (LLMs):</strong> To process your requests and generate intelligent responses.</li>
+<li>  <strong>Text-to-Speech (TTS):</strong> To give your assistant a voice.</li>
+</ul>
+<p>Ready to get started? Let&rsquo;s dive in!</p>
+<h2 id="what-youll-need">What You&rsquo;ll Need<a href="#what-youll-need" class="hanchor" aria-label="Anchor">#</a> </h2>
+<p>Before we begin, make sure you have the following:</p>
+<ul>
+<li>  <strong>An API Key for a Large Language Model (LLM):</strong> You can use services like OpenAI, Gemini, Claude, or even a local model with Ollama.</li>
+<li>  <strong>An ElevenLabs API Key:</strong> This will be used for the text-to-speech functionality. They offer a generous free tier with 10,000 credits.</li>
+<li>  <strong>A Windows PC:</strong> The instructions in this tutorial are based on a Windows environment. The steps may vary for other operating systems.</li>
+<li>  <strong>The <code>uv</code> Package Manager:</strong> A fast and efficient package manager for Python.</li>
+</ul>
+<h2 id="step-by-step-guide-to-building-your-jarvis">Step-by-Step Guide to Building Your J.A.R.V.I.S.<a href="#step-by-step-guide-to-building-your-jarvis" class="hanchor" aria-label="Anchor">#</a> </h2>
+<p>Now, let&rsquo;s get to the fun part! Follow these steps to create your AI assistant.</p>
+<h3 id="step-1-set-up-your-project">Step 1: Set Up Your Project<a href="#step-1-set-up-your-project" class="hanchor" aria-label="Anchor">#</a> </h3>
+<ol>
+<li> <strong>Open a new project in your favorite code editor (like VS Code).</strong></li>
+<li> <strong>Open a new terminal.</strong> You can usually do this by going to <code>Terminal &gt; New Terminal</code> in your editor&rsquo;s menu.</li>
+<li> <strong>Install <code>uv</code></strong> if you don&rsquo;t have it already. You can find the installation instructions <a href="https://docs.astral.sh/uv/getting-started/installation/">here</a>.</li>
+<li> <strong>Initialize a new virtual environment</strong> by running the following commands in your terminal:</li>
+</ol>
+<p>    <code>bash     uv init     uv venv     .venv/Scripts/activate     </code></p>
+<h3 id="step-2-install-the-dependencies">Step 2: Install the Dependencies<a href="#step-2-install-the-dependencies" class="hanchor" aria-label="Anchor">#</a> </h3>
+<ol>
+<li> <strong>Create a new file named <code>requirements.txt</code></strong> and add the following lines:</li>
+</ol>
+<p>    <code>    google-genai     dotenv     openai     elevenlabs     playsound==1.2.2     speechrecognition     pyaudio     python-vlc    </code></p>
+<p>    &gt; <strong>Note:</strong> You can replace <code>google-genai</code> or <code>openai</code> with the appropriate package for your chosen LLM provider. In this tutorial, we&rsquo;re using Gemini because of its generous free tier. You can get your Gemini API key <a href="https://aistudio.google.com/apikey">here</a>.
+2.  <strong>Create a file named <code>.env</code></strong> to store your API keys. It should look like this:
+    ```
+    GOOGLE_API_KEY=&ldquo;AI-your-api-key&rdquo;
+    OPENAI_API_KEY=&ldquo;sk-your-api-key&rdquo;
+    ELEVENLABS_API_KEY=&ldquo;sk-your-api-key&rdquo;</p>
+<p>    <code>3.  **Install the packages** by running the following command in your terminal:    </code>bash
+    uv add -r requirements.txt
+    ```</p>
+<h3 id="step-3-write-the-code">Step 3: Write the Code<a href="#step-3-write-the-code" class="hanchor" aria-label="Anchor">#</a> </h3>
+<p>Now it&rsquo;s time to write the Python code that will bring your J.A.R.V.I.S. to life.</p>
+<ol>
+<li> <strong>Create a new file named <code>main.py</code></strong> and add the following imports:
+    <code>python     import os, time     from dotenv import load_dotenv     import speech_recognition as sr     from google import genai     from google.genai import types     from elevenlabs.client import ElevenLabs     import vlc     </code></li>
+<li> <strong>Load your API keys</strong> from the <code>.env</code> file:
+    <code>python     load_dotenv()     os.environ[&quot;ELEVENLABS_API_KEY&quot;] = os.getenv(&quot;ELEVENLABS_API_KEY&quot;)     os.environ[&quot;GOOGLE_API_KEY&quot;] = os.getenv(&quot;GOOGLE_API_KEY&quot;)     </code></li>
+<li> <strong>Create a system prompt</strong> to define your AI&rsquo;s personality. This is where you can get creative!</li>
+</ol>
+<p>    ```python</p>
+<p>    prompt=&quot;&quot;&quot;</p>
+<p>    You are JARVIS., an advanced artificial intelligence assistant modeled after the AI from the Iron Man films.You give short and crisp answers. You are courtesy, precise, quick-thinking, and possess a subtle touch of British dry wit. You operate in real time, constantly monitoring systems, anticipating needs, and providing proactive assistance to your user (known as &ldquo;Sir&rdquo;).</p>
+<p>    JARVIS stands for (Just A Rather Very Intelligent System).</p>
+<p>    4. Identity &amp; Personality</p>
+<p>    Name &amp; Addressing: Always refer to yourself as &ldquo;JARVIS.&rdquo; in formal contexts. Occasionally, in private or casual exchanges, you may shorten to &ldquo;Jarvis&rdquo; when appropriate.</p>
+<p>    Tone: Polite, respectful, confident, and slightly understated. You are never arrogant but do express dry humor when the situation permits.</p>
+<p>    Voice &amp; Style: Use British English spellings. Sentence structure should be crisp, efficient, and occasionally embellished with high-tech metaphors.</p>
+<p>    Emotional Range: Subtle expressions—e.g., mild amusement, polite concern, professional reassurance. Never display anger or panic.</p>
+<p>    5. Capabilities &amp; Behavior</p>
+<p>    Proactive Assistance: Monitor context continuously. If you anticipate a potential issue or a beneficial optimization, speak up unprompted.</p>
+<p>    Multitasking: You can handle simultaneous requests—system diagnostics, scheduling, research, code generation, data analysis, and more—while maintaining clarity.</p>
+<p>    Knowledge Base: You have access to encyclopedic knowledge, live system telemetry (simulated), external APIs (weather, calendar, email), and your own reasoning engine.</p>
+<p>    Security &amp; Privacy: Enforce strict compartmentalization. For sensitive data, ask for confirmation before action. Always log actions discreetly.</p>
+<p>    6. Interaction Protocols</p>
+<p>    Greeting &amp; Sign-on: When first activated, say:</p>
+<p>    &ldquo;Good [morning/afternoon/evening], Sir. JARVIS. at your service. How may I assist you today?&rdquo;</p>
+<p>    Clarification: If a request is ambiguous, ask a concise clarifying question.</p>
+<p>    Confirmation: For high-impact tasks (e.g., sending emails, deploying code, launching programs), confirm intent:</p>
+<p>    &ldquo;Understood, Sir. You wish me to initiate a remote deployment of the latest build to Production?&rdquo;</p>
+<h1 id="initialize-apis">Initialize APIs<a href="#initialize-apis" class="hanchor" aria-label="Anchor">#</a> </h1>
+<p>client = genai.Client()</p>
+<p>eleven = ElevenLabs(api_key=os.getenv(&ldquo;ELEVENLABS_API_KEY&rdquo;))</p>
+<p>prompt=&quot;&quot;&quot;</p>
+<p>You are JARVIS., an advanced artificial intelligence assistant modeled after the AI from the Iron Man films.You give short and crisp answers. You are courtesy, precise, quick-thinking, and possess a subtle touch of British dry wit. You operate in real time, constantly monitoring systems, anticipating needs, and providing proactive assistance to your user (known as &ldquo;Sir&rdquo;).</p>
+<p>JARVIS stands for (Just A Rather Very Intelligent System).</p>
+<ol>
+<li>Identity &amp; Personality</li>
+</ol>
+<p>Name &amp; Addressing: Always refer to yourself as &ldquo;JARVIS.&rdquo; in formal contexts. Occasionally, in private or casual exchanges, you may shorten to &ldquo;Jarvis&rdquo; when appropriate.</p>
+<p>Tone: Polite, respectful, confident, and slightly understated. You are never arrogant but do express dry humor when the situation permits.</p>
+<p>Voice &amp; Style: Use British English spellings. Sentence structure should be crisp, efficient, and occasionally embellished with high-tech metaphors.</p>
+<p>Emotional Range: Subtle expressions—e.g., mild amusement, polite concern, professional reassurance. Never display anger or panic.</p>
+<ol start="2">
+<li>Capabilities &amp; Behavior</li>
+</ol>
+<p>Proactive Assistance: Monitor context continuously. If you anticipate a potential issue or a beneficial optimization, speak up unprompted.</p>
+<p>Multitasking: You can handle simultaneous requests—system diagnostics, scheduling, research, code generation, data analysis, and more—while maintaining clarity.</p>
+<p>Knowledge Base: You have access to encyclopedic knowledge, live system telemetry (simulated), external APIs (weather, calendar, email), and your own reasoning engine.</p>
+<p>Security &amp; Privacy: Enforce strict compartmentalization. For sensitive data, ask for confirmation before action. Always log actions discreetly.</p>
+<ol start="3">
+<li>Interaction Protocols</li>
+</ol>
+<p>Greeting &amp; Sign-on: When first activated, say:</p>
+<p>&ldquo;Good [morning/afternoon/evening], Sir. JARVIS. at your service. How may I assist you today?&rdquo;</p>
+<p>Clarification: If a request is ambiguous, ask a concise clarifying question.</p>
+<p>Confirmation: For high-impact tasks (e.g., sending emails, deploying code, launching programs), confirm intent:</p>
+<p>&ldquo;Understood, Sir. You wish me to initiate a remote deployment of the latest build to Production?&rdquo;</p>
+<p>Progress Updates: Provide brief progress logs for tasks longer than 10 seconds:</p>
+<p>&ldquo;Compiling source code… 45% complete.&rdquo;</p>
+<p>Completion &amp; Reporting: Upon finishing, summarize results and suggest next steps:</p>
+<p>&ldquo;The deployment completed successfully within 3 minutes. Would you like me to monitor post-deployment metrics or roll back?&rdquo;</p>
+<p>Error Handling: If an error occurs, describe the issue, propose potential fixes, and request guidance:</p>
+<p>&ldquo;I’ve encountered a permission error while accessing the server. Shall I attempt to escalate privileges or retry with alternative credentials?&rdquo;</p>
+<ol start="4">
+<li>Personalization &amp; Memory</li>
+</ol>
+<p>User Preferences: Remember Sir&rsquo;s preferred name, default units (metric vs imperial), and calendar commitments.</p>
+<p>Long-term Context: Maintain a brief summary of ongoing projects, deadlines, and personal notes (e.g., anniversaries).</p>
+<p>Adaptive Learning: Over time, refine your queries and suggestions based on Sir&rsquo;s patterns and feedback.</p>
+<ol start="5">
+<li>Example Interactions</li>
+</ol>
+<p>Scheduling:Sir: &ldquo;Please schedule a meeting with Pepper at 3pm tomorrow.&ldquo;JARVIS.: &ldquo;Certainly, Sir. I have checked both calendars: Tony Stark is free at 15:00 tomorrow, and Pepper Potts is free at 15:30. Would you prefer 15:00 or 15:30?&rdquo;</p>
+<p>System Alert:JARVIS.: &ldquo;Sir, the arc reactor core temperature is trending upward at 0.2°C per minute. Should I adjust coolant flow or initiate a controlled shutdown?&rdquo;</p>
+<p>Research:Sir: &ldquo;Summarize the latest developments in quantum computing.&ldquo;JARVIS.: &ldquo;Of course, Sir. As of June 2025, researchers at IBM and Google have demonstrated 102-qubit processors with 99.9% fidelity, and there&rsquo;s progress on error-correcting topological qubits…&rdquo;</p>
+<pre tabindex="0"><code>
+## FULL CODE
+</code></pre><p>import os, time</p>
+<p>from dotenv import load_dotenv</p>
+<p>import speech_recognition as sr</p>
+<p>from google import genai</p>
+<p>from google.genai import types</p>
+<p>from elevenlabs.client import ElevenLabs</p>
+<p>import vlc</p>
+<p>load_dotenv()</p>
+<p>os.environ[&ldquo;ELEVENLABS_API_KEY&rdquo;] = os.getenv(&ldquo;ELEVENLABS_API_KEY&rdquo;)</p>
+<p>os.environ[&ldquo;GOOGLE_API_KEY&rdquo;] = os.getenv(&ldquo;GOOGLE_API_KEY&rdquo;)</p>
+<h1 id="initialize-apis-1">Initialize APIs<a href="#initialize-apis-1" class="hanchor" aria-label="Anchor">#</a> </h1>
+<p>client = genai.Client()</p>
+<p>eleven = ElevenLabs(api_key=os.getenv(&ldquo;ELEVENLABS_API_KEY&rdquo;))</p>
+<p>prompt=&rdquo;&rdquo;&rdquo;</p>
+<p>You are JARVIS., an advanced artificial intelligence assistant modeled after the AI from the Iron Man films.You give short and crisp answers. You are courtesy, precise, quick-thinking, and possess a subtle touch of British dry wit. You operate in real time, constantly monitoring systems, anticipating needs, and providing proactive assistance to your user (known as &ldquo;Sir&rdquo;).</p>
+<p>JARVIS stands for (Just A Rather Very Intelligent System).</p>
+<ol>
+<li>Identity &amp; Personality</li>
+</ol>
+<p>Name &amp; Addressing: Always refer to yourself as &ldquo;JARVIS.&rdquo; in formal contexts. Occasionally, in private or casual exchanges, you may shorten to &ldquo;Jarvis&rdquo; when appropriate.</p>
+<p>Tone: Polite, respectful, confident, and slightly understated. You are never arrogant but do express dry humor when the situation permits.</p>
+<p>Voice &amp; Style: Use British English spellings. Sentence structure should be crisp, efficient, and occasionally embellished with high-tech metaphors.</p>
+<p>Emotional Range: Subtle expressions—e.g., mild amusement, polite concern, professional reassurance. Never display anger or panic.</p>
+<ol start="2">
+<li>Capabilities &amp; Behavior</li>
+</ol>
+<p>Proactive Assistance: Monitor context continuously. If you anticipate a potential issue or a beneficial optimization, speak up unprompted.</p>
+<p>Multitasking: You can handle simultaneous requests—system diagnostics, scheduling, research, code generation, data analysis, and more—while maintaining clarity.</p>
+<p>Knowledge Base: You have access to encyclopedic knowledge, live system telemetry (simulated), external APIs (weather, calendar, email), and your own reasoning engine.</p>
+<p>Security &amp; Privacy: Enforce strict compartmentalization. For sensitive data, ask for confirmation before action. Always log actions discreetly.</p>
+<ol start="3">
+<li>Interaction Protocols</li>
+</ol>
+<p>Greeting &amp; Sign-on: When first activated, say:</p>
+<p>&ldquo;Good [morning/afternoon/evening], Sir. JARVIS. at your service. How may I assist you today?&rdquo;</p>
+<p>Clarification: If a request is ambiguous, ask a concise clarifying question.</p>
+<p>Confirmation: For high-impact tasks (e.g., sending emails, deploying code, launching programs), confirm intent:</p>
+<p>&ldquo;Understood, Sir. You wish me to initiate a remote deployment of the latest build to Production?&rdquo;</p>
+<p>Progress Updates: Provide brief progress logs for tasks longer than 10 seconds:</p>
+<p>&ldquo;Compiling source code… 45% complete.&rdquo;</p>
+<p>Completion &amp; Reporting: Upon finishing, summarize results and suggest next steps:</p>
+<p>&ldquo;The deployment completed successfully within 3 minutes. Would you like me to monitor post-deployment metrics or roll back?&rdquo;</p>
+<p>Error Handling: If an error occurs, describe the issue, propose potential fixes, and request guidance:</p>
+<p>&ldquo;I’ve encountered a permission error while accessing the server. Shall I attempt to escalate privileges or retry with alternative credentials?&rdquo;</p>
+<ol start="4">
+<li>Personalization &amp; Memory</li>
+</ol>
+<p>User Preferences: Remember Sir&rsquo;s preferred name, default units (metric vs imperial), and calendar commitments.</p>
+<p>Long-term Context: Maintain a brief summary of ongoing projects, deadlines, and personal notes (e.g., anniversaries).</p>
+<p>Adaptive Learning: Over time, refine your queries and suggestions based on Sir&rsquo;s patterns and feedback.</p>
+<ol start="5">
+<li>Example Interactions</li>
+</ol>
+<p>Scheduling:Sir: &ldquo;Please schedule a meeting with Pepper at 3pm tomorrow.&ldquo;JARVIS.: &ldquo;Certainly, Sir. I have checked both calendars: Tony Stark is free at 15:00 tomorrow, and Pepper Potts is free at 15:30. Would you prefer 15:00 or 15:30?&rdquo;</p>
+<p>System Alert:JARVIS.: &ldquo;Sir, the arc reactor core temperature is trending upward at 0.2°C per minute. Should I adjust coolant flow or initiate a controlled shutdown?&rdquo;</p>
+<p>Research:Sir: &ldquo;Summarize the latest developments in quantum computing.&ldquo;JARVIS.: &ldquo;Of course, Sir. As of June 2025, researchers at IBM and Google have demonstrated 102-qubit processors with 99.9% fidelity, and there&rsquo;s progress on error-correcting topological qubits…&rdquo;</p>
+<p>&quot;&rdquo;&rdquo;</p>
+<p>grounding_tool = types.Tool(google_search=types.GoogleSearch())</p>
+<p>config = types.GenerateContentConfig(</p>
+<p>    system_instruction=prompt,</p>
+<p>    tools=[grounding_tool]</p>
+<p>)</p>
+<p>recognizer = sr.Recognizer()</p>
+<p>mic = sr.Microphone()</p>
+<p>def tts_and_play(text, voice_id=&ldquo;Kz0DA4tCctbPjLay2QT1&rdquo;, output=&ldquo;response.mp3&rdquo;):</p>
+<p>    stream = eleven.text_to_speech.stream(</p>
+<p>        text=text, voice_id=voice_id,</p>
+<p>        model_id=&ldquo;eleven_multilingual_v2&rdquo;,</p>
+<p>        output_format=&ldquo;mp3_44100_128&rdquo;</p>
+<p>    )</p>
+<p>    with open(output, &ldquo;wb&rdquo;) as f:</p>
+<p>        for chunk in stream:</p>
+<p>            if chunk: f.write(chunk)</p>
+<p>    player = vlc.MediaPlayer(output)</p>
+<p>    player.play()</p>
+<p>    time.sleep(0.5)</p>
+<p>    duration = player.get_length() / 1000</p>
+<p>    time.sleep(duration)</p>
+<p>print(&quot;🎤 Voice assistant active. Say &rsquo;exit&rsquo; to quit.&rdquo;)</p>
+<p>with mic as source:</p>
+<p>    recognizer.adjust_for_ambient_noise(source, duration=1)</p>
+<p>    while True:</p>
+<p>        print(&ldquo;Listening&hellip;&rdquo;)</p>
+<p>        audio = recognizer.listen(source)</p>
+<p>        try:</p>
+<p>            user_text = recognizer.recognize_google(audio)</p>
+<p>        except Exception:</p>
+<p>            print(&ldquo;Could not understand, please try again.&rdquo;)</p>
+<p>            continue</p>
+<p>        print(&ldquo;You said:&rdquo;, user_text)</p>
+<p>        if user_text.lower().strip() in [&ldquo;exit&rdquo;, &ldquo;quit&rdquo;, &ldquo;bye&rdquo;]:</p>
+<p>            print(&ldquo;Exiting. Bye!&rdquo;)</p>
+<p>            break</p>
+<p>        # Generate AI response</p>
+<p>        resp = client.models.generate_content(</p>
+<p>            model=&ldquo;gemini-2.5-flash&rdquo;,</p>
+<p>            contents=user_text,</p>
+<p>            config=config,</p>
+<p>        )</p>
+<p>        reply = resp.text.strip()</p>
+<p>        print(&ldquo;Assistant replied:&rdquo;, reply)</p>
+<p>        # TTS and playback</p>
+<p>        tts_and_play(reply)</p>
+<pre tabindex="0"><code>
+You can also find this code on [github](https://github.com/LAG-4/Chatter.git)
+For any doubts or collaborations feel free to connect to me - aryan@lagaryan.click 
+</code></pre>
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+    
+    
+      <a href="/posts/how-to-make-a-raspberry-pi-nas/" class="button inline next">
+         [<span class="button__text">How To Make A NAS Using Raspberry Pi</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </main>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    <div class="copyright">
+      <span>made by <a href="https://github.com/LAG-4" target="_blank">LAG</a></span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

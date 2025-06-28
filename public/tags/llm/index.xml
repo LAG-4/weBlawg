@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM on LAG</title>
+    <link>/tags/llm/</link>
+    <description>Recent content in LLM on LAG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 29 Jun 2025 05:04:03 +0530</lastBuildDate>
+    <atom:link href="/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making J.A.R.V.I.S</title>
+      <link>/posts/making-j.a.r.v.i.s/</link>
+      <pubDate>Sun, 29 Jun 2025 05:04:03 +0530</pubDate>
+      <guid>/posts/making-j.a.r.v.i.s/</guid>
+      <description>&lt;h1 id=&#34;ever-dreamed-of-building-your-own-jarvis&#34;&gt;Ever Dreamed of Building Your Own J.A.R.V.I.S.?&lt;/h1&gt;&#xA;&lt;p&gt;Have you ever watched an Iron Man movie and thought, &amp;ldquo;I wish I had my own J.A.R.V.I.S.&amp;rdquo;? That witty, all-knowing, and incredibly helpful AI assistant is no longer just a thing of science fiction. With today&amp;rsquo;s technology, you can create your very own version of J.A.R.V.I.S., and this tutorial will show you how.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-jarvis&#34;&gt;What is J.A.R.V.I.S.?&lt;/h2&gt;&#xA;&lt;p&gt;For those unfamiliar, J.A.R.V.I.S. (Just A Rather Very Intelligent System) is Tony Stark&amp;rsquo;s AI companion in the Marvel Cinematic Universe. He&amp;rsquo;s the voice in the suit, the brain behind the operations, and the ultimate smart home manager. J.A.R.V.I.S. can do everything from running diagnostics on the Iron Man suit to ordering shawarma. While we might not be building a superhero-grade AI today, we can certainly create a personal assistant that can answer questions, tell jokes, and even help with your daily tasks.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
