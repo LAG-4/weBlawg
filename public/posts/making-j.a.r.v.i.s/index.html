@@ -226,72 +226,123 @@ What is J.A.R.V.I.S.? For those unfamiliar, J.A.R.V.I.S. (Just A Rather Very Int
 <h2 id="why-build-your-own-ai-assistant">Why Build Your Own AI Assistant?<a href="#why-build-your-own-ai-assistant" class="hanchor" aria-label="Anchor">#</a> </h2>
 <p>Building your own AI assistant is a fantastic way to learn about artificial intelligence, machine learning, and programming. It&rsquo;s a project that combines several exciting technologies, including:</p>
 <ul>
-<li>  <strong>Speech Recognition:</strong> To understand your voice commands.</li>
-<li>  <strong>Large Language Models (LLMs):</strong> To process your requests and generate intelligent responses.</li>
-<li>  <strong>Text-to-Speech (TTS):</strong> To give your assistant a voice.</li>
+<li><strong>Speech Recognition:</strong> To understand your voice commands.</li>
+<li><strong>Large Language Models (LLMs):</strong> To process your requests and generate intelligent responses.</li>
+<li><strong>Text-to-Speech (TTS):</strong> To give your assistant a voice.</li>
 </ul>
 <p>Ready to get started? Let&rsquo;s dive in!</p>
 <h2 id="what-youll-need">What You&rsquo;ll Need<a href="#what-youll-need" class="hanchor" aria-label="Anchor">#</a> </h2>
 <p>Before we begin, make sure you have the following:</p>
 <ul>
-<li>  <strong>An API Key for a Large Language Model (LLM):</strong> You can use services like OpenAI, Gemini, Claude, or even a local model with Ollama.</li>
-<li>  <strong>An ElevenLabs API Key:</strong> This will be used for the text-to-speech functionality. They offer a generous free tier with 10,000 credits.</li>
-<li>  <strong>A Windows PC:</strong> The instructions in this tutorial are based on a Windows environment. The steps may vary for other operating systems.</li>
-<li>  <strong>The <code>uv</code> Package Manager:</strong> A fast and efficient package manager for Python.</li>
+<li><strong>An API Key for a Large Language Model (LLM):</strong> You can use services like OpenAI, Gemini, Claude, or even a local model with Ollama.</li>
+<li><strong>An ElevenLabs API Key:</strong> This will be used for the text-to-speech functionality. They offer a generous free tier with 10,000 credits.</li>
+<li><strong>A Windows PC:</strong> The instructions in this tutorial are based on a Windows environment. The steps may vary for other operating systems.</li>
+<li><strong>The <code>uv</code> Package Manager:</strong> A fast and efficient package manager for Python.</li>
 </ul>
 <h2 id="step-by-step-guide-to-building-your-jarvis">Step-by-Step Guide to Building Your J.A.R.V.I.S.<a href="#step-by-step-guide-to-building-your-jarvis" class="hanchor" aria-label="Anchor">#</a> </h2>
 <p>Now, let&rsquo;s get to the fun part! Follow these steps to create your AI assistant.</p>
 <h3 id="step-1-set-up-your-project">Step 1: Set Up Your Project<a href="#step-1-set-up-your-project" class="hanchor" aria-label="Anchor">#</a> </h3>
 <ol>
-<li> <strong>Open a new project in your favorite code editor (like VS Code).</strong></li>
-<li> <strong>Open a new terminal.</strong> You can usually do this by going to <code>Terminal &gt; New Terminal</code> in your editor&rsquo;s menu.</li>
-<li> <strong>Install <code>uv</code></strong> if you don&rsquo;t have it already. You can find the installation instructions <a href="https://docs.astral.sh/uv/getting-started/installation/">here</a>.</li>
-<li> <strong>Initialize a new virtual environment</strong> by running the following commands in your terminal:</li>
+<li>
+<p><strong>Open a new project in your favorite code editor (like VS Code).</strong></p>
+</li>
+<li>
+<p><strong>Open a new terminal.</strong> You can usually do this by going to <code>Terminal &gt; New Terminal</code> in your editor&rsquo;s menu.</p>
+</li>
+<li>
+<p><strong>Install <code>uv</code></strong> if you don&rsquo;t have it already. You can find the installation instructions <a href="https://docs.astral.sh/uv/getting-started/installation/">here</a>.</p>
+</li>
+<li>
+<p><strong>Initialize a new virtual environment</strong> by running the following commands in your terminal:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init
+</span></span><span class="line"><span class="cl">uv venv
+</span></span><span class="line"><span class="cl">.venv/Scripts/activate
+</span></span></code></pre></div></li>
 </ol>
-<p>    <code>bash     uv init     uv venv     .venv/Scripts/activate     </code></p>
 <h3 id="step-2-install-the-dependencies">Step 2: Install the Dependencies<a href="#step-2-install-the-dependencies" class="hanchor" aria-label="Anchor">#</a> </h3>
 <ol>
-<li> <strong>Create a new file named <code>requirements.txt</code></strong> and add the following lines:</li>
+<li>
+<p><strong>Create a new file named <code>requirements.txt</code></strong> and add the following lines:</p>
+<pre tabindex="0"><code>google-genai
+dotenv
+openai
+elevenlabs
+playsound==1.2.2
+speechrecognition
+pyaudio
+python-vlc
+</code></pre><blockquote>
+<p><strong>Note:</strong> You can replace <code>google-genai</code> or <code>openai</code> with the appropriate package for your chosen LLM provider. In this tutorial, we&rsquo;re using Gemini because of its generous free tier. You can get your Gemini API key <a href="https://aistudio.google.com/apikey">here</a>.</p></blockquote>
+</li>
+<li>
+<p><strong>Create a file named <code>.env</code></strong> to store your API keys. It should look like this:</p>
+<pre tabindex="0"><code>GOOGLE_API_KEY=&#34;AI-your-api-key&#34;
+OPENAI_API_KEY=&#34;sk-your-api-key&#34;
+ELEVENLABS_API_KEY=&#34;sk-your-api-key&#34;
+</code></pre></li>
+<li>
+<p><strong>Install the packages</strong> by running the following command in your terminal:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv add -r requirements.txt
+</span></span></code></pre></div></li>
 </ol>
-<p>    <code>    google-genai     dotenv     openai     elevenlabs     playsound==1.2.2     speechrecognition     pyaudio     python-vlc    </code></p>
-<p>    &gt; <strong>Note:</strong> You can replace <code>google-genai</code> or <code>openai</code> with the appropriate package for your chosen LLM provider. In this tutorial, we&rsquo;re using Gemini because of its generous free tier. You can get your Gemini API key <a href="https://aistudio.google.com/apikey">here</a>.
-2.  <strong>Create a file named <code>.env</code></strong> to store your API keys. It should look like this:
-    ```
-    GOOGLE_API_KEY=&ldquo;AI-your-api-key&rdquo;
-    OPENAI_API_KEY=&ldquo;sk-your-api-key&rdquo;
-    ELEVENLABS_API_KEY=&ldquo;sk-your-api-key&rdquo;</p>
-<p>    <code>3.  **Install the packages** by running the following command in your terminal:    </code>bash
-    uv add -r requirements.txt
-    ```</p>
 <h3 id="step-3-write-the-code">Step 3: Write the Code<a href="#step-3-write-the-code" class="hanchor" aria-label="Anchor">#</a> </h3>
 <p>Now it&rsquo;s time to write the Python code that will bring your J.A.R.V.I.S. to life.</p>
 <ol>
-<li> <strong>Create a new file named <code>main.py</code></strong> and add the following imports:
-    <code>python     import os, time     from dotenv import load_dotenv     import speech_recognition as sr     from google import genai     from google.genai import types     from elevenlabs.client import ElevenLabs     import vlc     </code></li>
-<li> <strong>Load your API keys</strong> from the <code>.env</code> file:
-    <code>python     load_dotenv()     os.environ[&quot;ELEVENLABS_API_KEY&quot;] = os.getenv(&quot;ELEVENLABS_API_KEY&quot;)     os.environ[&quot;GOOGLE_API_KEY&quot;] = os.getenv(&quot;GOOGLE_API_KEY&quot;)     </code></li>
-<li> <strong>Create a system prompt</strong> to define your AI&rsquo;s personality. This is where you can get creative!</li>
+<li>
+<p><strong>Create a new file named <code>main.py</code></strong> and add the following imports:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">google</span> <span class="kn">import</span> <span class="n">genai</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">google.genai</span> <span class="kn">import</span> <span class="n">types</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elevenlabs.client</span> <span class="kn">import</span> <span class="n">ElevenLabs</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">vlc</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Load your API keys</strong> from the <code>.env</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">load_dotenv</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;ELEVENLABS_API_KEY&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;ELEVENLABS_API_KEY&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;GOOGLE_API_KEY&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;GOOGLE_API_KEY&#34;</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Create a system prompt</strong> to define your AI&rsquo;s personality. This is where you can get creative!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span><span class="o">=</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">You are JARVIS., an advanced artificial intelligence assistant modeled after the AI from the Iron Man films.You give short and crisp answers. You are courtesy, precise, quick-thinking, and possess a subtle touch of British dry wit. You operate in real time, constantly monitoring systems, anticipating needs, and providing proactive assistance to your user (known as &#34;Sir&#34;).
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">JARVIS stands for (Just A Rather Very Intelligent System).
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">1. Identity &amp; Personality
+</span></span></span><span class="line"><span class="cl"><span class="s2">Name &amp; Addressing: Always refer to yourself as &#34;JARVIS.&#34; in formal contexts. Occasionally, in private or casual exchanges, you may shorten to &#34;Jarvis&#34; when appropriate.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Tone: Polite, respectful, confident, and slightly understated. You are never arrogant but do express dry humor when the situation permits.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Voice &amp; Style: Use British English spellings. Sentence structure should be crisp, efficient, and occasionally embellished with high-tech metaphors.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Emotional Range: Subtle expressions—e.g., mild amusement, polite concern, professional reassurance. Never display anger or panic.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">2. Capabilities &amp; Behavior
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Proactive Assistance: Monitor context continuously. If you anticipate a potential issue or a beneficial optimization, speak up unprompted.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Multitasking: You can handle simultaneous requests—system diagnostics, scheduling, research, code generation, data analysis, and more—while maintaining clarity.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Knowledge Base: You have access to encyclopedic knowledge, live system telemetry (simulated), external APIs (weather, calendar, email), and your own reasoning engine.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Security &amp; Privacy: Enforce strict compartmentalization. For sensitive data, ask for confirmation before action. Always log actions discreetly.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">3. Interaction Protocols
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Greeting &amp; Sign-on: When first activated, say:
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;Good [morning/afternoon/evening], Sir. JARVIS. at your service. How may I assist you today?&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Clarification: If a request is ambiguous, ask a concise clarifying question.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Confirmation: For high-impact tasks (e.g., sending emails, deploying code, launching programs), confirm intent:
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;Understood, Sir. You wish me to initiate a remote deployment of the latest build to Production?&#34;
+</span></span></span></code></pre></div></li>
 </ol>
-<p>    ```python</p>
-<p>    prompt=&quot;&quot;&quot;</p>
-<p>    You are JARVIS., an advanced artificial intelligence assistant modeled after the AI from the Iron Man films.You give short and crisp answers. You are courtesy, precise, quick-thinking, and possess a subtle touch of British dry wit. You operate in real time, constantly monitoring systems, anticipating needs, and providing proactive assistance to your user (known as &ldquo;Sir&rdquo;).</p>
-<p>    JARVIS stands for (Just A Rather Very Intelligent System).</p>
-<p>    4. Identity &amp; Personality</p>
-<p>    Name &amp; Addressing: Always refer to yourself as &ldquo;JARVIS.&rdquo; in formal contexts. Occasionally, in private or casual exchanges, you may shorten to &ldquo;Jarvis&rdquo; when appropriate.</p>
-<p>    Tone: Polite, respectful, confident, and slightly understated. You are never arrogant but do express dry humor when the situation permits.</p>
-<p>    Voice &amp; Style: Use British English spellings. Sentence structure should be crisp, efficient, and occasionally embellished with high-tech metaphors.</p>
-<p>    Emotional Range: Subtle expressions—e.g., mild amusement, polite concern, professional reassurance. Never display anger or panic.</p>
-<p>    5. Capabilities &amp; Behavior</p>
-<p>    Proactive Assistance: Monitor context continuously. If you anticipate a potential issue or a beneficial optimization, speak up unprompted.</p>
-<p>    Multitasking: You can handle simultaneous requests—system diagnostics, scheduling, research, code generation, data analysis, and more—while maintaining clarity.</p>
-<p>    Knowledge Base: You have access to encyclopedic knowledge, live system telemetry (simulated), external APIs (weather, calendar, email), and your own reasoning engine.</p>
-<p>    Security &amp; Privacy: Enforce strict compartmentalization. For sensitive data, ask for confirmation before action. Always log actions discreetly.</p>
-<p>    6. Interaction Protocols</p>
-<p>    Greeting &amp; Sign-on: When first activated, say:</p>
-<p>    &ldquo;Good [morning/afternoon/evening], Sir. JARVIS. at your service. How may I assist you today?&rdquo;</p>
-<p>    Clarification: If a request is ambiguous, ask a concise clarifying question.</p>
-<p>    Confirmation: For high-impact tasks (e.g., sending emails, deploying code, launching programs), confirm intent:</p>
-<p>    &ldquo;Understood, Sir. You wish me to initiate a remote deployment of the latest build to Production?&rdquo;</p>
 <h1 id="initialize-apis">Initialize APIs<a href="#initialize-apis" class="hanchor" aria-label="Anchor">#</a> </h1>
 <p>client = genai.Client()</p>
 <p>eleven = ElevenLabs(api_key=os.getenv(&ldquo;ELEVENLABS_API_KEY&rdquo;))</p>
@@ -338,8 +389,54 @@ What is J.A.R.V.I.S.? For those unfamiliar, J.A.R.V.I.S. (Just A Rather Very Int
 <p>Scheduling:Sir: &ldquo;Please schedule a meeting with Pepper at 3pm tomorrow.&ldquo;JARVIS.: &ldquo;Certainly, Sir. I have checked both calendars: Tony Stark is free at 15:00 tomorrow, and Pepper Potts is free at 15:30. Would you prefer 15:00 or 15:30?&rdquo;</p>
 <p>System Alert:JARVIS.: &ldquo;Sir, the arc reactor core temperature is trending upward at 0.2°C per minute. Should I adjust coolant flow or initiate a controlled shutdown?&rdquo;</p>
 <p>Research:Sir: &ldquo;Summarize the latest developments in quantum computing.&ldquo;JARVIS.: &ldquo;Of course, Sir. As of June 2025, researchers at IBM and Google have demonstrated 102-qubit processors with 99.9% fidelity, and there&rsquo;s progress on error-correcting topological qubits…&rdquo;</p>
-<pre tabindex="0"><code>
-## FULL CODE
+<p>&quot;&rdquo;&rdquo;</p>
+<p>grounding_tool = types.Tool(google_search=types.GoogleSearch())</p>
+<p>config = types.GenerateContentConfig(</p>
+<p>    system_instruction=prompt,</p>
+<p>    tools=[grounding_tool]</p>
+<p>)</p>
+<p>recognizer = sr.Recognizer()</p>
+<p>mic = sr.Microphone()</p>
+<p>def tts_and_play(text, voice_id=&ldquo;Kz0DA4tCctbPjLay2QT1&rdquo;, output=&ldquo;response.mp3&rdquo;):</p>
+<p>    stream = eleven.text_to_speech.stream(</p>
+<p>        text=text, voice_id=voice_id,</p>
+<p>        model_id=&ldquo;eleven_multilingual_v2&rdquo;,</p>
+<p>        output_format=&ldquo;mp3_44100_128&rdquo;</p>
+<p>    )</p>
+<p>    with open(output, &ldquo;wb&rdquo;) as f:</p>
+<p>        for chunk in stream:</p>
+<p>            if chunk: f.write(chunk)</p>
+<p>    player = vlc.MediaPlayer(output)</p>
+<p>    player.play()</p>
+<p>    time.sleep(0.5)</p>
+<p>    duration = player.get_length() / 1000</p>
+<p>    time.sleep(duration)</p>
+<p>print(&quot;🎤 Voice assistant active. Say &rsquo;exit&rsquo; to quit.&rdquo;)</p>
+<p>with mic as source:</p>
+<p>    recognizer.adjust_for_ambient_noise(source, duration=1)</p>
+<p>    while True:</p>
+<p>        print(&ldquo;Listening&hellip;&rdquo;)</p>
+<p>        audio = recognizer.listen(source)</p>
+<p>        try:</p>
+<p>            user_text = recognizer.recognize_google(audio)</p>
+<p>        except Exception:</p>
+<p>            print(&ldquo;Could not understand, please try again.&rdquo;)</p>
+<p>            continue</p>
+<p>        print(&ldquo;You said:&rdquo;, user_text)</p>
+<p>        if user_text.lower().strip() in [&ldquo;exit&rdquo;, &ldquo;quit&rdquo;, &ldquo;bye&rdquo;]:</p>
+<p>            print(&ldquo;Exiting. Bye!&rdquo;)</p>
+<p>            break</p>
+<p>        # Generate AI response</p>
+<p>        resp = client.models.generate_content(</p>
+<p>            model=&ldquo;gemini-2.5-flash&rdquo;,</p>
+<p>            contents=user_text,</p>
+<p>            config=config,</p>
+<p>        )</p>
+<p>        reply = resp.text.strip()</p>
+<p>        print(&ldquo;Assistant replied:&rdquo;, reply)</p>
+<p>        # TTS and playback</p>
+<p>        tts_and_play(reply)</p>
+<pre tabindex="0"><code>## FULL CODE
 </code></pre><p>import os, time</p>
 <p>from dotenv import load_dotenv</p>
 <p>import speech_recognition as sr</p>
@@ -353,7 +450,7 @@ What is J.A.R.V.I.S.? For those unfamiliar, J.A.R.V.I.S. (Just A Rather Very Int
 <h1 id="initialize-apis-1">Initialize APIs<a href="#initialize-apis-1" class="hanchor" aria-label="Anchor">#</a> </h1>
 <p>client = genai.Client()</p>
 <p>eleven = ElevenLabs(api_key=os.getenv(&ldquo;ELEVENLABS_API_KEY&rdquo;))</p>
-<p>prompt=&rdquo;&rdquo;&rdquo;</p>
+<p>prompt=&rdquo;&quot;&quot;</p>
 <p>You are JARVIS., an advanced artificial intelligence assistant modeled after the AI from the Iron Man films.You give short and crisp answers. You are courtesy, precise, quick-thinking, and possess a subtle touch of British dry wit. You operate in real time, constantly monitoring systems, anticipating needs, and providing proactive assistance to your user (known as &ldquo;Sir&rdquo;).</p>
 <p>JARVIS stands for (Just A Rather Very Intelligent System).</p>
 <ol>
