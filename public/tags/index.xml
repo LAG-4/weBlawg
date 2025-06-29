@@ -65,13 +65,6 @@
       <description></description>
     </item>
     <item>
-      <title>Gex</title>
-      <link>/tags/gex/</link>
-      <pubDate>Thu, 26 Jun 2025 04:45:03 +0530</pubDate>
-      <guid>/tags/gex/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Linux</title>
       <link>/tags/linux/</link>
       <pubDate>Thu, 26 Jun 2025 04:45:03 +0530</pubDate>
@@ -90,13 +83,6 @@
       <link>/tags/raspberrypi/</link>
       <pubDate>Thu, 26 Jun 2025 04:45:03 +0530</pubDate>
       <guid>/tags/raspberrypi/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Say</title>
-      <link>/tags/say/</link>
-      <pubDate>Thu, 26 Jun 2025 04:45:03 +0530</pubDate>
-      <guid>/tags/say/</guid>
       <description></description>
     </item>
   </channel>
